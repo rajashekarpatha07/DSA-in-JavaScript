@@ -41,6 +41,17 @@ class Myarray {
     this.length--;
     return firstItem;
   }
+
+  deleteByindex(index) {
+    if (index > this.length) return false;
+    const item = this.data[index];
+    for (let i = index; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+    return item
+  }
 }
 
 const array = new Myarray();
@@ -49,5 +60,6 @@ array.push("apple");
 array.push("banana");
 array.push("kiwi");
 // array.pop();
-array.shift();
+// array.shift();
+array.deleteByindex(2)
 console.log(array);
